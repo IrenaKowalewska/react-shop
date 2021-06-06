@@ -1,15 +1,13 @@
-
+import { useContext } from 'react';
+import { ShopContext } from '../context';
 function CartItem(props) {
     const { 
         mainId, 
         displayName, 
         finalPrice, 
-        quantity, 
-        deleteFromCart = Function.prototype,
-        removeProductCount = Function.prototype,
-        addProductCount = Function.prototype    
+        quantity,    
     } = props;
-    
+    const { deleteFromCart, removeProductCount, addProductCount } = useContext(ShopContext);
     return <li className="collection-item"> 
                 {displayName} × {quantity} =  {finalPrice * quantity} &#8381;, price: {finalPrice} &#8381;
                 <span 

@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+import { ShopContext } from '../context';
+
 const GoodsItem = (props) => {
     const {
         mainId,
@@ -5,9 +8,9 @@ const GoodsItem = (props) => {
         displayDescription,
         price,
         displayAssets,
-        addToCart = Function.prototype
     } = props;
     const { finalPrice } = price;
+    const {addToCart} = useContext(ShopContext);
     return <div className="card hoverable" id={mainId}>
                <div className="card-image">
                     <img src={displayAssets[0].background} alt={displayName}/>

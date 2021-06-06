@@ -1,11 +1,13 @@
+import { useContext } from 'react';
+import { ShopContext } from '../context';
 import { CartItem } from './CartItem';
-function CartList(props) {
-    const { order = [], 
-        handleCartShow = Function.prototype, 
-        deleteFromCart = Function.prototype,
-        removeProductCount = Function.prototype,
-        addProductCount = Function.prototype    
-    } = props;
+function CartList() {
+    const { order, 
+        handleCartShow, 
+        deleteFromCart,
+        removeProductCount,
+        addProductCount   
+    } = useContext(ShopContext);
     const totalPrice = order.reduce((sum, nextEl) => {
         return sum + nextEl.finalPrice * nextEl.quantity;
     }, 0);
